@@ -51,12 +51,10 @@ export const useTransactions = () => {
   }
 
   const resetData = () => {
-    if (confirm('Are you sure you want to delete ALL data? This cannot be undone.')) {
-      transactions.value = []
-      initialBalance.value = 0
-      localStorage.removeItem('mm_transactions')
-      localStorage.removeItem('mm_initial_balance')
-    }
+    transactions.value = []
+    initialBalance.value = 0
+    localStorage.removeItem('mm_transactions')
+    localStorage.removeItem('mm_initial_balance')
   }
 
   // Persistence

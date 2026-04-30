@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref, computed } from 'vue'
+
 const { 
   transactions, 
   totalIncome, 
@@ -14,6 +16,16 @@ const {
 } = useTransactions()
 
 const showSetup = computed(() => isLoaded.value && transactions.value.length === 0 && initialBalance.value === 0)
+const isResetDialogOpen = ref(false)
+
+const handleResetClick = () => {
+  isResetDialogOpen.value = true
+}
+
+const handleConfirmReset = () => {
+  resetData()
+  isResetDialogOpen.value = false
+}
 </script>
 
 <template>
@@ -24,10 +36,19 @@ const showSetup = computed(() => isLoaded.value && transactions.value.length ===
         @set="setInitialBalance"
       />
 
+      <ConfirmDialog
+        :is-open="isResetDialogOpen"
+        title="Reset All Data?"
+        message="This will permanently delete all your transaction history and initial balance. This action cannot be undone."
+        confirm-text="Yes, Reset Everything"
+        @confirm="handleConfirmReset"
+        @cancel="isResetDialogOpen = false"
+      />
+
       <BalanceHeader 
         :balance="balance" 
         :format-currency="formatCurrency" 
-        @reset="resetData"
+        @reset="handleResetClick"
       />
 
       <SummaryCards 

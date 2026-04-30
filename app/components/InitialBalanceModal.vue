@@ -17,8 +17,8 @@ const handleSubmit = () => {
   <div class="fixed inset-0 z-50 flex items-center justify-center bg-gray-900/50 backdrop-blur-sm p-4">
     <div class="w-full max-w-sm rounded-3xl bg-white p-8 shadow-2xl">
       <div class="mb-6 text-center">
-        <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-teal-50 text-3xl text-teal-600">
-          💰
+        <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-teal-50 text-teal-600">
+          <Icon name="lucide:wallet" class="h-8 w-8" />
         </div>
         <h2 class="text-2xl font-bold text-gray-800">Welcome!</h2>
         <p class="text-sm text-gray-500 mt-2">Set your initial balance to get started.</p>
