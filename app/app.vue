@@ -4,15 +4,24 @@ const {
   totalIncome, 
   totalExpense, 
   balance, 
+  initialBalance,
+  setInitialBalance,
   addTransaction, 
   deleteTransaction, 
   formatCurrency 
 } = useTransactions()
+
+const showSetup = computed(() => transactions.value.length === 0 && initialBalance.value === 0)
 </script>
 
 <template>
   <div class="min-h-screen bg-gray-100 p-4 font-sans text-gray-800">
     <div class="mx-auto max-w-md space-y-4">
+      <InitialBalanceModal 
+        v-if="showSetup"
+        @set="setInitialBalance"
+      />
+
       <BalanceHeader 
         :balance="balance" 
         :format-currency="formatCurrency" 

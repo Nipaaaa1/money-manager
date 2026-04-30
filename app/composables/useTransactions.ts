@@ -10,6 +10,7 @@ export interface Transaction {
 
 export const useTransactions = () => {
   const transactions = ref<Transaction[]>([])
+  const initialBalance = ref<number>(0)
 
   // Computed totals
   const totalIncome = computed(() => {
@@ -24,9 +25,14 @@ export const useTransactions = () => {
       .reduce((acc, t) => acc + t.amount, 0)
   })
 
-  const balance = computed(() => totalIncome.value - totalExpense.value)
+  const balance = computed(() => initialBalance.value + totalIncome.value - totalExpense.value)
 
   // Actions
+  const setInitialBalance = (amount: number) => {
+    initialBalance.value = amount
+    localStorage.setItem('mm_initial_balance', amount.toString())
+  }
+
   const addTransaction = (description: string, amount: number, type: 'income' | 'expense') => {
     const newTransaction: Transaction = {
       id: Date.now(),
@@ -45,9 +51,14 @@ export const useTransactions = () => {
 
   // Persistence
   onMounted(() => {
-    const saved = localStorage.getItem('mm_transactions')
-    if (saved) {
-      transactions.value = JSON.parse(saved)
+    const savedTransactions = localStorage.getItem('mm_transactions')
+    if (savedTransactions) {
+      transactions.value = JSON.parse(savedTransactions)
+    }
+
+    const savedInitialBalance = localStorage.getItem('mm_initial_balance')
+    if (savedInitialBalance) {
+      initialBalance.value = parseFloat(savedInitialBalance)
     }
   })
 
@@ -69,9 +80,11 @@ export const useTransactions = () => {
 
   return {
     transactions,
+    initialBalance,
     totalIncome,
     totalExpense,
     balance,
+    setInitialBalance,
     addTransaction,
     deleteTransaction,
     formatCurrency
