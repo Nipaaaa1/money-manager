@@ -27,5 +27,12 @@
     "reset_message": "This will permanently delete all your transaction history and initial balance. This action cannot be undone.",
     "confirm": "Yes, Reset Everything",
     "cancel": "Cancel"
+  },
+  "donation": {
+    "button": "Support Me",
+    "title": "Support This Project",
+    "message": "If you find this app useful, consider supporting its development with crypto.",
+    "close": "Close",
+    "copy": "Copy"
   }
 }

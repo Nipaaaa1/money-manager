@@ -27,5 +27,12 @@
     "reset_message": "Ini akan menghapus seluruh riwayat transaksi dan saldo awal secara permanen. Tindakan ini tidak dapat dibatalkan.",
     "confirm": "Ya, Hapus Semua",
     "cancel": "Batal"
+  },
+  "donation": {
+    "button": "Dukung Saya",
+    "title": "Dukung Proyek Ini",
+    "message": "Jika Anda merasa aplikasi ini bermanfaat, pertimbangkan untuk mendukung pengembangannya melalui kripto.",
+    "close": "Tutup",
+    "copy": "Salin"
   }
 }
