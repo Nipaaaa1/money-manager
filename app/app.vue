@@ -6,6 +6,7 @@ const {
   balance, 
   initialBalance,
   setInitialBalance,
+  resetData,
   addTransaction, 
   deleteTransaction, 
   formatCurrency 
@@ -25,6 +26,7 @@ const showSetup = computed(() => transactions.value.length === 0 && initialBalan
       <BalanceHeader 
         :balance="balance" 
         :format-currency="formatCurrency" 
+        @reset="resetData"
       />
 
       <SummaryCards 

@@ -49,6 +49,15 @@ export const useTransactions = () => {
     transactions.value = transactions.value.filter((t) => t.id !== id)
   }
 
+  const resetData = () => {
+    if (confirm('Are you sure you want to delete ALL data? This cannot be undone.')) {
+      transactions.value = []
+      initialBalance.value = 0
+      localStorage.removeItem('mm_transactions')
+      localStorage.removeItem('mm_initial_balance')
+    }
+  }
+
   // Persistence
   onMounted(() => {
     const savedTransactions = localStorage.getItem('mm_transactions')
@@ -87,6 +96,7 @@ export const useTransactions = () => {
     setInitialBalance,
     addTransaction,
     deleteTransaction,
-    formatCurrency
+    resetData,
+    formatCurrency,
   }
 }
