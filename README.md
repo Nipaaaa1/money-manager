@@ -1,75 +1,61 @@
-# Nuxt Minimal Starter
+# 💰 Simple Money Manager
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A clean, compact, and functional money manager / expense tracking application built with **Nuxt 4**, **Vue 3**, and **Tailwind CSS**.
 
-## Setup
+## ✨ Features
 
-Make sure to install dependencies:
+-   **Compact Dashboard**: View your total balance, total income, and total expenses at a glance.
+-   **Onboarding Flow**: Set your initial balance when you first use the app to ensure accurate tracking.
+-   **Transaction Management**:
+    -   Add income or expense with descriptions and amounts.
+    -   Delete individual transactions from the history.
+    -   Reset all data (including initial balance) to start fresh.
+-   **Local Persistence**: All data is stored in your browser's `localStorage`. No account or backend required.
+-   **Responsive Design**: Optimized for both mobile and desktop usage with a modern UI.
+-   **Currency Formatting**: Automatically formats values to Indonesian Rupiah (IDR).
 
-```bash
-# npm
-npm install
+## 🛠️ Tech Stack
 
-# pnpm
-pnpm install
+-   **Framework**: [Nuxt 4](https://nuxt.com/)
+-   **Frontend Library**: [Vue 3](https://vuejs.org/) (Composition API)
+-   **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+-   **State Management**: Vue 3 Composables
+-   **Icons/UI**: Custom SVG icons and Vanilla CSS transitions.
 
-# yarn
-yarn install
+## 🚀 Getting Started
 
-# bun
-bun install
-```
+### Prerequisites
 
-## Development Server
+-   Node.js (latest LTS recommended)
+-   pnpm (or npm/yarn)
 
-Start the development server on `http://localhost:3000`:
+### Installation
 
-```bash
-# npm
-npm run dev
+1.  Clone the repository:
+    ```bash
+    git clone <repository-url>
+    cd money-manager
+    ```
 
-# pnpm
-pnpm dev
+2.  Install dependencies:
+    ```bash
+    pnpm install
+    ```
 
-# yarn
-yarn dev
+3.  Start the development server:
+    ```bash
+    pnpm dev
+    ```
 
-# bun
-bun run dev
-```
+4.  Open your browser and navigate to `http://localhost:3000`.
 
-## Production
+## 📂 Project Structure
 
-Build the application for production:
+-   `app/app.vue`: Main layout and entry point.
+-   `app/components/`: Modular UI components (Header, Forms, List, Modals).
+-   `app/composables/`: Reusable business logic and state management (`useTransactions`).
+-   `app/assets/css/`: Global styles and Tailwind configuration.
 
-```bash
-# npm
-npm run build
+## 📝 License
 
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+This project is open-source and available under the [MIT License](LICENSE).
