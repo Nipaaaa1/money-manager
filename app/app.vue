@@ -5,6 +5,7 @@ const {
   totalExpense, 
   balance, 
   initialBalance,
+  isLoaded,
   setInitialBalance,
   resetData,
   addTransaction, 
@@ -12,7 +13,7 @@ const {
   formatCurrency 
 } = useTransactions()
 
-const showSetup = computed(() => transactions.value.length === 0 && initialBalance.value === 0)
+const showSetup = computed(() => isLoaded.value && transactions.value.length === 0 && initialBalance.value === 0)
 </script>
 
 <template>

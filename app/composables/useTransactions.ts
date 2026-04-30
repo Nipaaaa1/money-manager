@@ -11,6 +11,7 @@ export interface Transaction {
 export const useTransactions = () => {
   const transactions = ref<Transaction[]>([])
   const initialBalance = ref<number>(0)
+  const isLoaded = ref(false)
 
   // Computed totals
   const totalIncome = computed(() => {
@@ -69,6 +70,8 @@ export const useTransactions = () => {
     if (savedInitialBalance) {
       initialBalance.value = parseFloat(savedInitialBalance)
     }
+    
+    isLoaded.value = true
   })
 
   watch(
@@ -90,6 +93,7 @@ export const useTransactions = () => {
   return {
     transactions,
     initialBalance,
+    isLoaded,
     totalIncome,
     totalExpense,
     balance,
