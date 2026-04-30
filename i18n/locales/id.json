@@ -1,0 +1,31 @@
+{
+  "app": {
+    "title": "Pengatur Keuangan",
+    "total_balance": "Total Saldo",
+    "income": "Pemasukan",
+    "expense": "Pengeluaran",
+    "history": "Riwayat",
+    "no_transactions": "Belum ada transaksi."
+  },
+  "onboarding": {
+    "welcome": "Selamat Datang!",
+    "set_balance": "Atur saldo awal Anda untuk memulai.",
+    "label": "Saldo Saat Ini (IDR)",
+    "placeholder": "misal: 1000000",
+    "button": "Mulai!"
+  },
+  "form": {
+    "title": "Tambah Transaksi",
+    "description": "Deskripsi",
+    "desc_placeholder": "misal: Gaji, Kopi",
+    "amount": "Nominal",
+    "type": "Tipe",
+    "button": "Tambah Transaksi"
+  },
+  "dialog": {
+    "reset_title": "Hapus Semua Data?",
+    "reset_message": "Ini akan menghapus seluruh riwayat transaksi dan saldo awal secara permanen. Tindakan ini tidak dapat dibatalkan.",
+    "confirm": "Ya, Hapus Semua",
+    "cancel": "Batal"
+  }
+}

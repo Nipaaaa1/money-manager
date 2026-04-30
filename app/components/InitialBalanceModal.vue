@@ -20,28 +20,28 @@ const handleSubmit = () => {
         <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-teal-50 text-teal-600">
           <Icon name="lucide:wallet" class="h-8 w-8" />
         </div>
-        <h2 class="text-2xl font-bold text-gray-800">Welcome!</h2>
-        <p class="text-sm text-gray-500 mt-2">Set your initial balance to get started.</p>
+        <h2 class="text-2xl font-bold text-gray-800">{{ $t('onboarding.welcome') }}</h2>
+        <p class="text-sm text-gray-500 mt-2">{{ $t('onboarding.set_balance') }}</p>
       </div>
-      
+
       <form @submit.prevent="handleSubmit" class="space-y-6">
         <div>
-          <label class="block text-xs font-semibold text-gray-400 uppercase mb-2 ml-1">Current Balance (IDR)</label>
+          <label class="block text-xs font-semibold text-gray-400 uppercase mb-2 ml-1">{{ $t('onboarding.label') }}</label>
           <input
             v-model.number="initialAmount"
             type="number"
-            placeholder="e.g. 1000000"
+            :placeholder="$t('onboarding.placeholder')"
             class="w-full rounded-2xl border-2 border-gray-100 bg-gray-50 p-4 text-center text-xl font-bold focus:border-teal-500 focus:ring-0 outline-none transition-all"
             required
             autofocus
           />
         </div>
-        
+
         <button
           type="submit"
           class="w-full rounded-2xl bg-teal-600 py-4 text-lg font-bold text-white shadow-xl shadow-teal-100 hover:bg-teal-700 active:scale-95 transition-all"
         >
-          Let's Go!
+          {{ $t('onboarding.button') }}
         </button>
       </form>
     </div>

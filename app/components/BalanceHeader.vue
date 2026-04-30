@@ -18,7 +18,7 @@ const emit = defineEmits<{
     >
       <Icon name="lucide:trash-2" class="h-5 w-5" />
     </button>
-    <h1 class="text-sm font-medium uppercase tracking-wider text-gray-500">Total Balance</h1>
+    <h1 class="text-sm font-medium uppercase tracking-wider text-gray-500">{{ $t('app.total_balance') }}</h1>
     <p class="mt-1 text-3xl font-bold" :class="balance >= 0 ? 'text-teal-600' : 'text-rose-600'">
       {{ formatCurrency(balance) }}
     </p>

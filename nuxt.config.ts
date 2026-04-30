@@ -12,9 +12,19 @@ export default defineNuxtConfig({
     ]
   },
 
-  modules: ["@nuxt/icon"],
+  modules: ["@nuxt/icon", "@nuxtjs/i18n"],
   icon: {
     mode: 'css',
     cssLayer: 'base'
+  },
+
+  i18n: {
+    locales: [
+      { code: 'en', name: 'English', file: 'en.json' },
+      { code: 'id', name: 'Indonesia', file: 'id.json' }
+    ],
+    defaultLocale: 'en',
+    langDir: 'locales/',
+    strategy: 'no_prefix'
   }
 })

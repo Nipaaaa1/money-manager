@@ -1,0 +1,31 @@
+{
+  "app": {
+    "title": "Money Manager",
+    "total_balance": "Total Balance",
+    "income": "Income",
+    "expense": "Expense",
+    "history": "History",
+    "no_transactions": "No transactions yet."
+  },
+  "onboarding": {
+    "welcome": "Welcome!",
+    "set_balance": "Set your initial balance to get started.",
+    "label": "Current Balance (IDR)",
+    "placeholder": "e.g. 1000000",
+    "button": "Let's Go!"
+  },
+  "form": {
+    "title": "Add Transaction",
+    "description": "Description",
+    "desc_placeholder": "e.g. Salary, Coffee",
+    "amount": "Amount",
+    "type": "Type",
+    "button": "Add Transaction"
+  },
+  "dialog": {
+    "reset_title": "Reset All Data?",
+    "reset_message": "This will permanently delete all your transaction history and initial balance. This action cannot be undone.",
+    "confirm": "Yes, Reset Everything",
+    "cancel": "Cancel"
+  }
+}

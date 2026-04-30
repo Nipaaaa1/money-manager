@@ -13,9 +13,9 @@ const emit = defineEmits<{
 
 <template>
   <section class="space-y-3">
-    <h2 class="text-lg font-bold px-2">History</h2>
+    <h2 class="text-lg font-bold px-2">{{ $t('app.history') }}</h2>
     <div v-if="transactions.length === 0" class="text-center py-8 text-gray-400 text-sm">
-      No transactions yet.
+      {{ $t('app.no_transactions') }}
     </div>
     <div
       v-for="t in transactions"
