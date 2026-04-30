@@ -5,13 +5,17 @@ A clean, compact, and functional money manager / expense tracking application bu
 ## ✨ Features
 
 -   **Compact Dashboard**: View your total balance, total income, and total expenses at a glance.
+-   **Multi-language Support**: Fully supports **English** and **Indonesian** with a seamless language switcher.
 -   **Onboarding Flow**: Set your initial balance when you first use the app to ensure accurate tracking.
 -   **Transaction Management**:
-    -   Add income or expense with descriptions and amounts.
+    -   Add income or expense with intuitive radio selections.
     -   Delete individual transactions from the history.
-    -   Reset all data (including initial balance) to start fresh.
+    -   Custom confirmation dialog for resetting all data safely.
 -   **Local Persistence**: All data is stored in your browser's `localStorage`. No account or backend required.
--   **Responsive Design**: Optimized for both mobile and desktop usage with a modern UI.
+-   **Modern UI/UX**:
+    -   Beautiful animations and transitions.
+    -   Integrated iconography using **Lucide Icons** via Nuxt Icon.
+    -   Mobile-first responsive design.
 -   **Currency Formatting**: Automatically formats values to Indonesian Rupiah (IDR).
 
 ## 🛠️ Tech Stack
@@ -19,8 +23,11 @@ A clean, compact, and functional money manager / expense tracking application bu
 -   **Framework**: [Nuxt 4](https://nuxt.com/)
 -   **Frontend Library**: [Vue 3](https://vuejs.org/) (Composition API)
 -   **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
--   **State Management**: Vue 3 Composables
--   **Icons/UI**: Custom SVG icons and Vanilla CSS transitions.
+-   **Modules**:
+    -   [`@nuxt/icon`](https://nuxt.com/modules/icon): For consistent and high-quality iconography.
+    -   [`@nuxtjs/i18n`](https://i18n.nuxtjs.org/): For seamless multi-language support.
+-   **State Management**: Vue 3 Composables (`useTransactions`)
+-   **Persistence**: Browser `localStorage`.
 
 ## 🚀 Getting Started
 
@@ -48,13 +55,6 @@ A clean, compact, and functional money manager / expense tracking application bu
     ```
 
 4.  Open your browser and navigate to `http://localhost:3000`.
-
-## 📂 Project Structure
-
--   `app/app.vue`: Main layout and entry point.
--   `app/components/`: Modular UI components (Header, Forms, List, Modals).
--   `app/composables/`: Reusable business logic and state management (`useTransactions`).
--   `app/assets/css/`: Global styles and Tailwind configuration.
 
 ## 📝 License
 
