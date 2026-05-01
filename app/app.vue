@@ -15,7 +15,18 @@ const {
   formatCurrency 
 } = useTransactions()
 
-const { locale, setLocale } = useI18n()
+const { locale, setLocale, t } = useI18n()
+
+useSeoMeta({
+  title: () => t('app.title'),
+  ogTitle: () => t('app.title'),
+  description: () => t('app.description'),
+  ogDescription: () => t('app.description'),
+  ogImage: '/og-image.png',
+  twitterCard: 'summary_large_image',
+  twitterTitle: () => t('app.title'),
+  twitterDescription: () => t('app.description'),
+})
 
 const showSetup = computed(() => isLoaded.value && transactions.value.length === 0 && initialBalance.value === 0)
 const isResetDialogOpen = ref(false)

@@ -1,6 +1,7 @@
 {
   "app": {
     "title": "Money Manager",
+    "description": "Simple and clean personal money manager to track your income and expenses.",
     "total_balance": "Total Balance",
     "income": "Income",
     "expense": "Expense",

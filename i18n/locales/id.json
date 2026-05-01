@@ -1,6 +1,7 @@
 {
   "app": {
     "title": "Pengatur Keuangan",
+    "description": "Pengelola keuangan pribadi yang sederhana dan bersih untuk melacak pemasukan dan pengeluaran Anda.",
     "total_balance": "Total Saldo",
     "income": "Pemasukan",
     "expense": "Pengeluaran",
