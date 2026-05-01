@@ -5,7 +5,8 @@
     "income": "Pemasukan",
     "expense": "Pengeluaran",
     "history": "Riwayat",
-    "no_transactions": "Belum ada transaksi."
+    "no_transactions": "Belum ada transaksi.",
+    "no_transactions_subtitle": "Mulai dengan menambahkan pemasukan atau pengeluaran pertama Anda!"
   },
   "onboarding": {
     "welcome": "Selamat Datang!",

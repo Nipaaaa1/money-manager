@@ -5,7 +5,8 @@
     "income": "Income",
     "expense": "Expense",
     "history": "History",
-    "no_transactions": "No transactions yet."
+    "no_transactions": "No transactions yet.",
+    "no_transactions_subtitle": "Start by adding your first income or expense above!"
   },
   "onboarding": {
     "welcome": "Welcome!",

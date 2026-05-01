@@ -14,8 +14,14 @@ const emit = defineEmits<{
 <template>
   <section class="space-y-3">
     <h2 class="text-lg font-bold px-2">{{ $t('app.history') }}</h2>
-    <div v-if="transactions.length === 0" class="text-center py-8 text-gray-400 text-sm">
-      {{ $t('app.no_transactions') }}
+    <div v-if="transactions.length === 0" class="flex flex-col items-center justify-center py-12 px-4 rounded-3xl bg-white/50 border-2 border-dashed border-gray-200">
+      <div class="h-16 w-16 bg-gray-100 rounded-full flex items-center justify-center mb-4">
+        <Icon name="lucide:receipt-text" class="h-8 w-8 text-gray-400" />
+      </div>
+      <h3 class="text-gray-600 font-bold mb-1">{{ $t('app.no_transactions') }}</h3>
+      <p class="text-gray-400 text-xs text-center max-w-[200px] leading-relaxed">
+        {{ $t('app.no_transactions_subtitle') }}
+      </p>
     </div>
     <div
       v-for="t in transactions"
