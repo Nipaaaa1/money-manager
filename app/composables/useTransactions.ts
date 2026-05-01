@@ -11,6 +11,7 @@ export interface Transaction {
 export const useTransactions = () => {
   const transactions = ref<Transaction[]>([])
   const initialBalance = ref<number>(0)
+  const currency = ref<'IDR' | 'USD'>('IDR')
   const isLoaded = ref(false)
 
   // Computed totals
@@ -57,6 +58,11 @@ export const useTransactions = () => {
     localStorage.removeItem('mm_initial_balance')
   }
 
+  const setCurrency = (val: 'IDR' | 'USD') => {
+    currency.value = val
+    localStorage.setItem('mm_currency', val)
+  }
+
   // Persistence
   onMounted(() => {
     const savedTransactions = localStorage.getItem('mm_transactions')
@@ -67,6 +73,11 @@ export const useTransactions = () => {
     const savedInitialBalance = localStorage.getItem('mm_initial_balance')
     if (savedInitialBalance) {
       initialBalance.value = parseFloat(savedInitialBalance)
+    }
+
+    const savedCurrency = localStorage.getItem('mm_currency') as 'IDR' | 'USD'
+    if (savedCurrency) {
+      currency.value = savedCurrency
     }
     
     isLoaded.value = true
@@ -81,21 +92,24 @@ export const useTransactions = () => {
   )
 
   const formatCurrency = (val: number) => {
-    return new Intl.NumberFormat('id-ID', {
+    const locale = currency.value === 'IDR' ? 'id-ID' : 'en-US'
+    return new Intl.NumberFormat(locale, {
       style: 'currency',
-      currency: 'IDR',
-      maximumFractionDigits: 0
+      currency: currency.value,
+      maximumFractionDigits: currency.value === 'IDR' ? 0 : 2
     }).format(val)
   }
 
   return {
     transactions,
     initialBalance,
+    currency,
     isLoaded,
     totalIncome,
     totalExpense,
     balance,
     setInitialBalance,
+    setCurrency,
     addTransaction,
     deleteTransaction,
     resetData,

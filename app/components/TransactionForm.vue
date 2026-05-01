@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+defineProps<{
+  currency: 'IDR' | 'USD'
+}>()
+
 const emit = defineEmits<{
   (e: 'add', description: string, amount: number, type: 'income' | 'expense'): void
 }>()
@@ -40,6 +44,7 @@ const handleSubmit = () => {
           <input
             v-model.number="amount"
             type="number"
+            :step="currency === 'IDR' ? '1' : '0.01'"
             placeholder="0"
             class="w-full rounded-xl border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 p-3 text-sm text-gray-800 dark:text-gray-100 focus:border-teal-500 focus:ring-teal-500 outline-none transition-all"
             required

@@ -12,7 +12,8 @@
   "onboarding": {
     "welcome": "Welcome!",
     "set_balance": "Set your initial balance to get started.",
-    "label": "Current Balance (IDR)",
+    "currency": "Currency",
+    "label": "Current Balance",
     "placeholder": "e.g. 1000000",
     "button": "Let's Go!"
   },

@@ -1,15 +1,20 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+const props = defineProps<{
+  currency: 'IDR' | 'USD'
+}>()
+
 const emit = defineEmits<{
-  (e: 'set', amount: number): void
+  (e: 'set', amount: number, currency: 'IDR' | 'USD'): void
 }>()
 
 const initialAmount = ref<number | null>(null)
+const selectedCurrency = ref<'IDR' | 'USD'>(props.currency)
 
 const handleSubmit = () => {
   if (initialAmount.value === null) return
-  emit('set', initialAmount.value)
+  emit('set', initialAmount.value, selectedCurrency.value)
 }
 </script>
 
@@ -25,16 +30,41 @@ const handleSubmit = () => {
       </div>
 
       <form @submit.prevent="handleSubmit" class="space-y-6">
-        <div>
-          <label class="block text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase mb-2 ml-1">{{ $t('onboarding.label') }}</label>
-          <input
-            v-model.number="initialAmount"
-            type="number"
-            :placeholder="$t('onboarding.placeholder')"
-            class="w-full rounded-2xl border-2 border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 p-4 text-center text-xl font-bold text-gray-800 dark:text-gray-100 focus:border-teal-500 focus:ring-0 outline-none transition-all"
-            required
-            autofocus
-          />
+        <div class="space-y-4">
+          <div>
+            <label class="block text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase mb-2 ml-1">{{ $t('onboarding.currency') }}</label>
+            <div class="grid grid-cols-2 gap-3">
+              <button 
+                type="button"
+                @click="selectedCurrency = 'IDR'"
+                class="flex items-center justify-center gap-2 rounded-xl border-2 p-3 transition-all font-bold text-sm"
+                :class="selectedCurrency === 'IDR' ? 'border-teal-500 bg-teal-50 dark:bg-teal-900/20 text-teal-700 dark:text-teal-400' : 'border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 text-gray-500'"
+              >
+                IDR
+              </button>
+              <button 
+                type="button"
+                @click="selectedCurrency = 'USD'"
+                class="flex items-center justify-center gap-2 rounded-xl border-2 p-3 transition-all font-bold text-sm"
+                :class="selectedCurrency === 'USD' ? 'border-teal-500 bg-teal-50 dark:bg-teal-900/20 text-teal-700 dark:text-teal-400' : 'border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 text-gray-500'"
+              >
+                USD
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase mb-2 ml-1">{{ $t('onboarding.label') }}</label>
+            <input
+              v-model.number="initialAmount"
+              type="number"
+              :step="selectedCurrency === 'IDR' ? '1' : '0.01'"
+              :placeholder="$t('onboarding.placeholder')"
+              class="w-full rounded-2xl border-2 border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 p-4 text-center text-xl font-bold text-gray-800 dark:text-gray-100 focus:border-teal-500 focus:ring-0 outline-none transition-all"
+              required
+              autofocus
+            />
+          </div>
         </div>
 
         <button

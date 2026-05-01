@@ -12,7 +12,8 @@
   "onboarding": {
     "welcome": "Selamat Datang!",
     "set_balance": "Atur saldo awal Anda untuk memulai.",
-    "label": "Saldo Saat Ini (IDR)",
+    "currency": "Mata Uang",
+    "label": "Saldo Saat Ini",
     "placeholder": "misal: 1000000",
     "button": "Mulai!"
   },
