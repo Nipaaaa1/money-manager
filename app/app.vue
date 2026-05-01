@@ -49,25 +49,29 @@ const handleConfirmReset = () => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-gray-100 p-4 font-sans text-gray-800 pb-20">
+  <div class="min-h-screen bg-gray-100 dark:bg-gray-950 p-4 font-sans text-gray-800 dark:text-gray-100 pb-20 transition-colors duration-300">
     <div class="mx-auto max-w-md space-y-4">
       <!-- Header Actions -->
       <div class="flex justify-between items-center relative z-50">
-        <button 
-          @click="isDonationDialogOpen = true"
-          class="flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-bold shadow-sm hover:bg-gray-50 transition-all border border-gray-100 text-teal-600"
-        >
-          <Icon name="lucide:heart" class="h-4 w-4" />
-          <span>{{ $t('donation.button') }}</span>
-        </button>
+        <div class="flex items-center gap-2">
+          <button 
+            @click="isDonationDialogOpen = true"
+            class="flex items-center gap-2 rounded-full bg-white dark:bg-gray-800 px-4 py-2 text-xs font-bold shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-all border border-gray-100 dark:border-gray-700 text-teal-600 dark:text-teal-400"
+          >
+            <Icon name="lucide:heart" class="h-4 w-4" />
+            <span>{{ $t('donation.button') }}</span>
+          </button>
+          
+          <ColorModePicker />
+        </div>
 
         <!-- Language Dropdown -->
         <div class="relative">
           <button 
             @click.stop="isLangDropdownOpen = !isLangDropdownOpen"
-            class="flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-bold shadow-sm hover:bg-gray-50 transition-all border border-gray-100"
+            class="flex items-center gap-2 rounded-full bg-white dark:bg-gray-800 px-4 py-2 text-xs font-bold shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-all border border-gray-100 dark:border-gray-700 text-gray-800 dark:text-gray-100"
           >
-            <Icon name="lucide:languages" class="h-4 w-4 text-teal-600" />
+            <Icon name="lucide:languages" class="h-4 w-4 text-teal-600 dark:text-teal-400" />
             <span class="uppercase">{{ locale }}</span>
             <Icon name="lucide:chevron-down" class="h-3 w-3 text-gray-400 transition-transform duration-200" :class="{ 'rotate-180': isLangDropdownOpen }" />
           </button>
@@ -83,12 +87,12 @@ const handleConfirmReset = () => {
           >
             <div 
               v-if="isLangDropdownOpen"
-              class="absolute right-0 mt-2 w-36 origin-top-right rounded-2xl bg-white p-2 shadow-xl border border-gray-100 z-[70]"
+              class="absolute right-0 mt-2 w-36 origin-top-right rounded-2xl bg-white dark:bg-gray-800 p-2 shadow-xl border border-gray-100 dark:border-gray-700 z-[70]"
             >
               <button 
                 @click="handleLocaleSelect('en')"
                 class="flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-xs font-bold transition-colors"
-                :class="locale === 'en' ? 'bg-teal-50 text-teal-600' : 'text-gray-600 hover:bg-gray-50'"
+                :class="locale === 'en' ? 'bg-teal-50 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400' : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700'"
               >
                 <span>ENGLISH</span>
                 <Icon v-if="locale === 'en'" name="lucide:check" class="h-3 w-3" />
@@ -96,7 +100,7 @@ const handleConfirmReset = () => {
               <button 
                 @click="handleLocaleSelect('id')"
                 class="flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-xs font-bold transition-colors"
-                :class="locale === 'id' ? 'bg-teal-50 text-teal-600' : 'text-gray-600 hover:bg-gray-50'"
+                :class="locale === 'id' ? 'bg-teal-50 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400' : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700'"
               >
                 <span>INDONESIA</span>
                 <Icon v-if="locale === 'id'" name="lucide:check" class="h-3 w-3" />
@@ -108,7 +112,7 @@ const handleConfirmReset = () => {
           <div 
             v-if="isLangDropdownOpen" 
             @click="isLangDropdownOpen = false" 
-            class="fixed inset-0 z-[60] bg-black/5"
+            class="fixed inset-0 z-[60]"
           ></div>
         </div>
       </div>
@@ -155,9 +159,3 @@ const handleConfirmReset = () => {
     </div>
   </div>
 </template>
-
-<style>
-body {
-  background-color: #f3f4f6;
-}
-</style>

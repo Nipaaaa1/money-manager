@@ -32,25 +32,25 @@ const emit = defineEmits<{
           leave-from-class="opacity-100 scale-100 translate-y-0"
           leave-to-class="opacity-0 scale-95 translate-y-4"
         >
-          <div class="w-full max-w-sm rounded-3xl bg-white p-6 shadow-2xl">
+          <div class="w-full max-w-sm rounded-3xl bg-white dark:bg-gray-800 p-6 shadow-2xl transition-colors">
             <div class="mb-6 text-center">
-              <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-rose-50 text-rose-500">
+              <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-rose-50 dark:bg-rose-900/20 text-rose-500 dark:text-rose-400">
                 <Icon name="lucide:alert-triangle" class="h-7 w-7" />
               </div>
-              <h2 class="text-xl font-bold text-gray-800">{{ title }}</h2>
-              <p class="mt-2 text-sm text-gray-500 leading-relaxed">{{ message }}</p>
+              <h2 class="text-xl font-bold text-gray-800 dark:text-gray-100">{{ title }}</h2>
+              <p class="mt-2 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{{ message }}</p>
             </div>
 
             <div class="flex flex-col gap-3">
               <button
                 @click="emit('confirm')"
-                class="w-full rounded-2xl bg-rose-500 py-3.5 text-sm font-bold text-white shadow-lg shadow-rose-100 hover:bg-rose-600 active:scale-95 transition-all"
+                class="w-full rounded-2xl bg-rose-500 py-3.5 text-sm font-bold text-white shadow-lg shadow-rose-100 dark:shadow-none hover:bg-rose-600 active:scale-95 transition-all"
               >
                 {{ confirmText || 'Yes, Delete' }}
               </button>
               <button
                 @click="emit('cancel')"
-                class="w-full rounded-2xl bg-gray-50 py-3.5 text-sm font-bold text-gray-500 hover:bg-gray-100 active:scale-95 transition-all"
+                class="w-full rounded-2xl bg-gray-50 dark:bg-gray-700 py-3.5 text-sm font-bold text-gray-500 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600 active:scale-95 transition-all"
               >
                 {{ cancelText || 'Cancel' }}
               </button>

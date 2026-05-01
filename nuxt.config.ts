@@ -12,7 +12,10 @@ export default defineNuxtConfig({
     ]
   },
 
-  modules: ["@nuxt/icon", "@nuxtjs/i18n"],
+  modules: ["@nuxt/icon", "@nuxtjs/i18n", '@nuxtjs/color-mode'],
+  colorMode: {
+    classSuffix: ''
+  },
   icon: {
     mode: 'css',
     cssLayer: 'base'

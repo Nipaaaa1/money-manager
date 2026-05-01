@@ -50,44 +50,44 @@ const copyToClipboard = async (text: string, type: 'btc' | 'eth') => {
           leave-from-class="opacity-100 scale-100 translate-y-0"
           leave-to-class="opacity-0 scale-95 translate-y-4"
         >
-          <div class="w-full max-w-sm rounded-3xl bg-white p-6 shadow-2xl">
+          <div class="w-full max-w-sm rounded-3xl bg-white dark:bg-gray-800 p-6 shadow-2xl transition-colors">
             <div class="mb-6 text-center">
-              <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-teal-50 text-teal-600">
+              <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-teal-50 dark:bg-teal-900/20 text-teal-600 dark:text-teal-400">
                 <Icon name="lucide:heart" class="h-7 w-7" />
               </div>
-              <h2 class="text-xl font-bold text-gray-800">{{ $t('donation.title') }}</h2>
-              <p class="mt-2 text-sm text-gray-500 leading-relaxed">{{ $t('donation.message') }}</p>
+              <h2 class="text-xl font-bold text-gray-800 dark:text-gray-100">{{ $t('donation.title') }}</h2>
+              <p class="mt-2 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{{ $t('donation.message') }}</p>
             </div>
 
             <div class="space-y-4 mb-6">
               <!-- BTC -->
-              <div class="group relative rounded-2xl border-2 border-gray-50 bg-gray-50 p-4 transition-all hover:border-teal-100">
+              <div class="group relative rounded-2xl border-2 border-gray-50 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 p-4 transition-all hover:border-teal-100 dark:hover:border-teal-900">
                 <div class="flex items-center justify-between mb-1">
-                  <span class="text-[10px] font-bold uppercase tracking-wider text-gray-400">Bitcoin (BTC)</span>
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500">Bitcoin (BTC)</span>
                   <button 
                     @click="copyToClipboard(btcAddress, 'btc')"
-                    class="text-teal-600 hover:text-teal-700 transition-colors"
+                    class="text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 transition-colors"
                   >
                     <Icon :name="copiedBtc ? 'lucide:check' : 'lucide:copy'" class="h-4 w-4" />
                   </button>
                 </div>
-                <p class="break-all text-xs font-mono text-gray-600 leading-tight pr-6">
+                <p class="break-all text-xs font-mono text-gray-600 dark:text-gray-300 leading-tight pr-6">
                   {{ btcAddress }}
                 </p>
               </div>
 
               <!-- ETH -->
-              <div class="group relative rounded-2xl border-2 border-gray-50 bg-gray-50 p-4 transition-all hover:border-teal-100">
+              <div class="group relative rounded-2xl border-2 border-gray-50 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 p-4 transition-all hover:border-teal-100 dark:hover:border-teal-900">
                 <div class="flex items-center justify-between mb-1">
-                  <span class="text-[10px] font-bold uppercase tracking-wider text-gray-400">Ethereum (ETH)</span>
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500">Ethereum (ETH)</span>
                   <button 
                     @click="copyToClipboard(ethAddress, 'eth')"
-                    class="text-teal-600 hover:text-teal-700 transition-colors"
+                    class="text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 transition-colors"
                   >
                     <Icon :name="copiedEth ? 'lucide:check' : 'lucide:copy'" class="h-4 w-4" />
                   </button>
                 </div>
-                <p class="break-all text-xs font-mono text-gray-600 leading-tight pr-6">
+                <p class="break-all text-xs font-mono text-gray-600 dark:text-gray-300 leading-tight pr-6">
                   {{ ethAddress }}
                 </p>
               </div>
@@ -95,7 +95,7 @@ const copyToClipboard = async (text: string, type: 'btc' | 'eth') => {
 
             <button
               @click="emit('close')"
-              class="w-full rounded-2xl bg-gray-900 py-3.5 text-sm font-bold text-white shadow-lg hover:bg-gray-800 active:scale-95 transition-all"
+              class="w-full rounded-2xl bg-gray-900 dark:bg-gray-700 py-3.5 text-sm font-bold text-white shadow-lg hover:bg-gray-800 dark:hover:bg-gray-600 active:scale-95 transition-all"
             >
               {{ $t('donation.close') }}
             </button>
